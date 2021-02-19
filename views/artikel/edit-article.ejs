@@ -90,10 +90,13 @@
             <div class="form-group">
                <select class="custom-select" name="category">
                   <option selected>Categories</option>
-                  <% if (categories.length > 0) { var iteration = 0;%> <%
-                  for(let category of categories) { %>
-                  <option value="<%= category.id%>">
-                     <%= category.categoryname %>
+                  <% if (categories.length > 0) {%>
+                      <% for(let i = 0 ; i < categories.length; i++) { 
+                        var selected = ( categories[i].id == artikel[0].category_id) ? "selected" : "";
+                        %>
+                        <option value="<%= categories[i].id%>" <%= selected%>  >
+                        <%=categories[i].categoryname %> 
+                      
                   </option>
                   <% } %> <% } %>
                </select>

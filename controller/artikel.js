@@ -52,12 +52,10 @@ exports.postAddArticle = (req, res, next) => {
 
 exports.getArticle = (req, res, next) => {
     const artikelId = req.params;
-    console.log(artikelId);
     Artikel.findById(artikelId.artikelId)
         .then((artikel) => {
 
             Category.fetchAll().then(([categoryRows]) => {
-                console.log(artikel[0]);
                 res.render('artikel/edit-article', {
                     artikel: artikel[0],
                     categories: categoryRows
@@ -65,32 +63,7 @@ exports.getArticle = (req, res, next) => {
             });
 
 
-
         }
         )
         .catch(err => console.log(err));
 };
-
-// Author.findById(artikelrows.author_id)
-//                 .then(resultUser){
-//                 res.render('artikel/artikel-list', {
-//                     user: resultUser,
-//                     articles: artikelrows,
-//                     pageTitle: 'All Articles',
-//                 });
-//                 console.log(artikelrows);
-
-
-//             }
-
-    // res.render('artikel/artikel-list', {
-    //      user: resultUser,
-    //      articles: artikelrows,
-    //      pageTitle: 'All Articles',
-    //      });
-
-    // res.render('shop/product-detail', {
-    //     product: product[0],
-    //     pageTitle: product.title,
-    //     path: '/products'
-    //   });
