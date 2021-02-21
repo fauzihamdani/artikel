@@ -15,6 +15,6 @@ router.get('/', artikelController.getArticles);
 router.get('/add-article', isAuth, artikelController.getAddArticle);
 router.post('/add-article', artikelController.postAddArticle);
 router.get('/get-article/:artikelId', artikelController.getArticle);
-
+router.post('/add-article', artikelController.postDelete);
 
 module.exports = router;

@@ -1,3 +1,4 @@
+const { promiseImpl } = require('ejs');
 const Artikel = require('../model/artikel');
 const Author = require('../model/author');
 const Category = require('../model/category');
@@ -52,6 +53,8 @@ exports.postAddArticle = (req, res, next) => {
 
 exports.getArticle = (req, res, next) => {
     const artikelId = req.params;
+
+
     Artikel.findById(artikelId.artikelId)
         .then((artikel) => {
 
@@ -66,4 +69,21 @@ exports.getArticle = (req, res, next) => {
         }
         )
         .catch(err => console.log(err));
+
 };
+
+
+// Artikel.findById(artikelId.artikelId)
+// .then((artikel) => {
+
+//     Category.fetchAll().then(([categoryRows]) => {
+//         res.render('artikel/edit-article', {
+//             artikel: artikel[0],
+//             categories: categoryRows
+//         });
+//     });
+
+
+// }
+// )
+// .catch(err => console.log(err));
